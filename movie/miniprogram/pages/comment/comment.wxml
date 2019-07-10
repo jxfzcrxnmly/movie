@@ -1,0 +1,28 @@
+<!--pages/comment/comment.wxml-->
+<text>pages/comment/comment.wxml</text>
+<view class="detail-container" style='background:url({{detail.images.large}}) no-repeat top/cover' ></view>
+<view class='detail-mask'></view>
+<view class='detail-info'>
+  <image src="{{detail.images.large}}" class='detail-img'></image>
+  <view class='detail'>
+      <view class='detail-nm'>{{detail.title}}</view>
+      <view>{{detail.original-title}}</view>
+  </view>
+  <view class='detail.sc'>{{detail.rating.average}}分</view>
+  <view>{{detail.countries[0]}}  {{detail.duration[0]}}</view>
+
+    <!--评价 -->
+    <van-cell-group>
+  <van-field
+    value="{{ content }}"
+    placeholder="写一些评价吧"
+    bind:change="onContentChange"
+  />
+</van-cell-group>
+<van-rate value="{{ scroe }}" bind:change="onScoreChange" />
+<van-button type="warning" bindtap='uploadImg'>上传图片</van-button>
+<view>
+  <image class='comment-img' src='{{item}}' wx:for="{{images}}" wx:key="{{index}}"></image>
+</view>
+<van-button type="danger" size='large' bindtap='submit'>提交评价</van-button>
+</view>
